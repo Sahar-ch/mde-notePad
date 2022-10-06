@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import Split from "react-split";
 import Editor from "./components/Editor";
-import SideBar from "./components/SideBar";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   const [notes, setNotes] = useState(
@@ -45,12 +45,30 @@ const App = () => {
     });
   };
 
+  const deleteNote = (event, id) => {
+    event.stopPropagation();
+    setNotes((prevNotes) => {
+      const newArray = prevNotes.filter((note) => {
+        return note.id !== id;
+      });
+      return newArray;
+    });
+  };
+
   return (
     <main>
       {(notes[0] && (
-        <Split>
-          <SideBar />
-          <Editor />
+        <Split className="split" sizes={[30, 70]} direction="horizontal">
+          <Sidebar
+            notes={notes}
+            currentNote={findCurrentNote()}
+            newNote={createNewNote}
+            deleteNote={deleteNote}
+            setCurrentNoteId={setCurrentNoteId}
+          />
+          {currentNoteId && notes.length > 0 && (
+            <Editor currentNote={findCurrentNote()} updateNote={updateNote} />
+          )}
         </Split>
       )) || (
         <div className="no-notes">
