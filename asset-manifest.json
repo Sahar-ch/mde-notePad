@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mde-notePad/static/css/main.912fcb18.css",
+    "main.js": "/mde-notePad/static/js/main.8cf3eb87.js",
+    "index.html": "/mde-notePad/index.html",
+    "main.912fcb18.css.map": "/mde-notePad/static/css/main.912fcb18.css.map",
+    "main.8cf3eb87.js.map": "/mde-notePad/static/js/main.8cf3eb87.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.912fcb18.css",
+    "static/js/main.8cf3eb87.js"
+  ]
+}
